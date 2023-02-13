@@ -216,7 +216,7 @@ aside p {
 /* MENU */
 
 #menu {
-    background-image: url(../images/donut12.jpg);
+    background-image: url(../images/donut13.jpg);
     min-height: 100vh;
 }
 
@@ -229,13 +229,13 @@ aside p {
 .menu-content .page-title {
     text-align: center;
     margin-top: 80px;
-    margin-left: 200px;
+    margin-left: 250px;
 }
 
 .menu-content p {
     font-size: 1.125rem;
     margin: 10px 0 0;
-    margin-left: 180px;
+    margin-left: 230px;
 }
 
 .grid {
@@ -298,6 +298,29 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
     line-height: 1;
+}
+
+/* 店舗情報・地図 */
+
+#location {
+    padding: 4% 0;
+}
+
+#location .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-info {
+    width: 22%;
+}
+
+.location-info p {
+    padding: 12px 10px;
+}
+
+.location-map {
+    width: 74%;
 }
 
 /* モバイル版 */
@@ -405,6 +428,16 @@ input[type="submit"] {
     input[type="email"],
     textarea {
         max-width: 100%;
+    }
+
+    /* 店舗情報・地図 */
+    #location .wrapper {
+        flex-direction: column;
+    }
+
+    .location-info,
+    .location-map {
+        width: 100%;
     }
 
 }

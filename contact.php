@@ -25,7 +25,12 @@
             </header>
             <div class="wrapper">
                 <h2 class="page-title">Contact</h2>
-                <form action="#">
+                <?php if( $page_flag === 1): ?>
+                    <!-- 確認画面 -->
+                <?php elseif( $page_flag === 2): ?>
+                    <!-- 完了画面 -->
+                <?php else: ?>
+                <form  method="post" action="confirm.php">
                     <div>
                         <label for="name">お名前</label>
                         <input type="text" id="name" name="your-name">
@@ -43,6 +48,7 @@
 
                     <input type="submit" class="button" value="送信">
                 </form>
+                <?php endif; ?>
             </div>
             <!-- /.wrapper -->
 

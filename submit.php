@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>DOUNUTS Cafe 完了画面</title>
+        <title>DOUNUT Shop 完了画面</title>
     </head>
     <body>
         <?php if( $page_flag === 1): ?>

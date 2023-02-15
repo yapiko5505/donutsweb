@@ -1,8 +1,44 @@
+<?php
+    require_once( 'vendor/autoload.php');
+    Valitron\Validator::lang('ja');
+    // Valitronクラスを実行
+    $v = new Valitron\Validator($_POST);
+    // 入力必須の項目が記入されているか確認
+    // 入力項目のうち備考のみ任意項目にしてみる
+    $v->rule('required', 'name')->message('{field}を入力してください。');
+    $v->rule('required', 'email')->message('{field}を入力してください。');
+    $v->rule('required', 'message')->message('{field}を入力してください。');
+    // 入力された文字がメール形式かを確認
+    $v->rule('email', 'email')->message('{field}が正しい形式ではありません。');
+    // 項目名を指定
+    $v->labels([
+                    'name' => '名前',
+                    'email' => 'メールアドレス',
+                    'message' => 'メッセージ'
+               ]);
+    // バリデーションを実行
+    if($v->validate()) {
+        // 値の受け取り
+        $name = htmlspecialchars($_POST['name']);
+        $email= htmlspecialchars($_POST['email']);
+        $message = htmlspecialchars($_POST['message']);
+    } else {
+        $errors = [];
+        foreach ($v->errors() as $error) {
+            foreach ($error as $value) {
+                $errors[] = $value;
+            }
+        }
+    }
+    // 完了画面へ値を送る
+    $_SESSION['form_data'] = $_POST;
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>DOUNUTS Shop 確認画面</title>
+        <title>DOUNUT Shop 確認画面</title>
     </head>
     <body>
         <div class="form">
